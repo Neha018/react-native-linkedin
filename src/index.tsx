@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react'
 import {
   TouchableOpacity,
   View,
-  ViewPropTypes,
   Text,
   Modal,
   StyleSheet,
@@ -49,9 +48,9 @@ interface Props {
   closeStyle?: any
   animationType?: 'none' | 'fade' | 'slide'
   areaTouchText: {
-    top?: number, 
-    bottom?: number, 
-    left?: number, 
+    top?: number,
+    bottom?: number,
+    left?: number,
     right?: number
   }
   shouldGetAccessToken?: boolean
@@ -211,9 +210,9 @@ export default class LinkedInModal extends React.Component<Props, State> {
     areaTouchText: PropTypes.object,
     renderButton: PropTypes.func,
     renderClose: PropTypes.func,
-    containerStyle: ViewPropTypes.style,
-    wrapperStyle: ViewPropTypes.style,
-    closeStyle: ViewPropTypes.style,
+    // containerStyle: ViewPropTypes.style,
+    // wrapperStyle: ViewPropTypes.style,
+    // closeStyle: ViewPropTypes.style,
     animationType: PropTypes.string,
     shouldGetAccessToken: PropTypes.bool,
   }
@@ -311,11 +310,11 @@ export default class LinkedInModal extends React.Component<Props, State> {
     const { renderButton, linkText, areaTouchText, isDisabled = false } = this.props
     if (renderButton) {
       return(
-        <TouchableOpacity  
+        <TouchableOpacity
         accessibilityComponentType={'button'}
         accessibilityTraits={['button']}
         onPress={this.open}
-        hitSlop={areaTouchText} 
+        hitSlop={areaTouchText}
         disabled={isDisabled}>
           {renderButton()}
         </TouchableOpacity>
